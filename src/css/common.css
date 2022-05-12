@@ -17,9 +17,30 @@ img {
   max-width: 100%;
 }
 
-button[data-start],
-button[data-stop] {
-  padding: 10px 20px;
+button {
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.timer {
+  display: flex;
+  margin-top: 15px;
+}
+
+.field {
+  text-align: center;
+  padding: 5px 5px;
+}
+
+.value {
+  display: block;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.label {
+  display: block;
+  font-size: 10px;
+  text-align: center;
+  text-transform: uppercase;
 }
