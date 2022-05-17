@@ -27,17 +27,17 @@ const flatpickrOptions = {
   onClose(selectedDates) {
     console.log(selectedDates[0]);
     if (checkValidDate(selectedDates[0].getTime())) {
-      ref.startTimerBtn.disabled = false;
+      refs.startTimerBtn.disabled = false;
     } else {
       Notify.failure('Please, pick the date in the future.');
-      ref.startTimerBtn.disabled = true;
+      refs.startTimerBtn.disabled = true;
     }
 
     inputDate = selectedDates[0];
   },
 };
 
-const ref = {
+const refs = {
   datetimeInput: document.querySelector('input#datetime-picker'),
   startTimerBtn: document.querySelector('[data-start]'),
   days: document.querySelector('[data-days]'),
@@ -48,13 +48,13 @@ const ref = {
 
 let inputDate;
 
-ref.startTimerBtn.disabled = true;
-ref.startTimerBtn.addEventListener('click', handleCountdownTimer);
+refs.startTimerBtn.disabled = true;
+refs.startTimerBtn.addEventListener('click', handleCountdownTimer);
 
-flatpickr(ref.datetimeInput, flatpickrOptions);
+flatpickr(refs.datetimeInput, flatpickrOptions);
 
-function handleCountdownTimer(e) {
-  e.preventDefault();
+function handleCountdownTimer(evt) {
+  evt.preventDefault();
 
   const coundownId = setInterval(() => {
     const countdownTime = checkValidDate(inputDate);
@@ -72,10 +72,10 @@ function handleCountdownTimer(e) {
 
 function displayCountdown(time) {
   const { days, hours, minutes, seconds } = convertMs(time);
-  ref.days.textContent = days;
-  ref.hours.textContent = hours;
-  ref.mins.textContent = minutes;
-  ref.secs.textContent = seconds;
+  refs.days.textContent = days;
+  refs.hours.textContent = hours;
+  refs.mins.textContent = minutes;
+  refs.secs.textContent = seconds;
 }
 
 function checkValidDate(date) {

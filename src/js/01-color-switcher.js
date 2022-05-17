@@ -1,21 +1,22 @@
 // Write a script that, after clicking the "Start" button, changes the <body> background color once a second to a random value using the inline style. When clicking on the "Stop" button, background color change must stop.
 
-ref = {
+const refs = {
     btnStart: document.querySelector('[data-start]'),
     btnStop: document.querySelector('[data-stop]')
-}
+};
+let timerId;
 
-ref.btnStart.addEventListener('click', handleStartColorSwitcher);
-ref.btnStop.addEventListener('click', handleStopColorSwitcher)
+refs.btnStart.addEventListener('click', handleStartColorSwitcher);
+refs.btnStop.addEventListener('click', handleStopColorSwitcher)
 
 function handleStartColorSwitcher() {
-    ref.btnStart.setAttribute('disabled', 'disabled');
-    timertId = setInterval(changeBodyColor, 1000);
+    refs.btnStart.setAttribute('disabled', 'disabled');
+    timerId = setInterval(changeBodyColor, 1000);
 }
 
 function handleStopColorSwitcher() {
-    ref.btnStart.removeAttribute('disabled', 'disabled');
-    clearInterval(timertId);
+    refs.btnStart.removeAttribute('disabled');
+    clearInterval(timerId);
 }
 
 function changeBodyColor() {

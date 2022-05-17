@@ -15,11 +15,11 @@ Notify.init({
   closeButton: false,
 });
 
-const ref = {
+const refs = {
   form: document.querySelector('.form'),
 };
 
-ref.form.addEventListener('submit', handleCreatePromises);
+refs.form.addEventListener('submit', handleCreatePromises);
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
@@ -35,10 +35,10 @@ function createPromise(position, delay) {
   })
 };
 
-function handleCreatePromises(e) {
-  e.preventDefault();
+function handleCreatePromises(evt) {
+  evt.preventDefault();
 
-  const data = new FormData(e.currentTarget);
+  const data = new FormData(evt.currentTarget);
   const delay = Number.parseInt(data.get('delay'));
   const step = Number.parseInt(data.get('step'));
   const amount = Number.parseInt(data.get('amount'));
