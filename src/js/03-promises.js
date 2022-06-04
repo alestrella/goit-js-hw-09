@@ -52,4 +52,5 @@ function handleCreatePromises(evt) {
       Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
     });
   };
+  refs.form.reset();
 }
